@@ -1,33 +1,27 @@
 function createHomeLayout() {
-  const container = UI.createElement(
-    "div",
-    {
-      class: "container-root",
-    },
-    [
-      UI.createElement(
-        "header",
-        { class: "header" },
-        UI.createElement("a", { href: "./index.html" }, "Log In")
-      ),
-      UI.createElement("main", { class: "main-section" }, [
-        UI.createElement("nav", { class: "sidebar" }, "sidebar"),
-        UI.createElement("div", { class: "section" }, [
-          UI.createElement("section", { class: "box" }, "section"),
-          UI.createElement("section", { class: "box" }, "section"),
-          createFooter(),
-        ]),
+  const container = UI.createElement("div", { class: "container-root" }, [
+    UI.createElement(
+      "header",
+      { class: "header" },
+      UI.createElement("a", { href: "./index.html" }, "Log In")
+    ),
+    UI.createElement("main", { class: "main-section" }, [
+      UI.createElement("nav", { class: "sidebar" }, "sidebar"),
+      UI.createElement("div", { class: "section" }, [
+        UI.createElement("section", { class: "box" }, "section"),
+        UI.createElement("section", { class: "box" }, "section"),
+        createFooter(),
       ]),
-    ]
-  );
+    ]),
+  ]);
 
   UI.render(container, document.body);
 }
 
 function createFooter() {
   return UI.createElement(
-    'footer', 
-    { class: "footer", id: "time-footer" }, 
+    "footer",
+    { class: "footer", id: "time-footer" },
     Date().toString()
   );
 }
@@ -35,14 +29,14 @@ function createFooter() {
 setInterval(() => {
   const section = document.querySelector("div.section");
 
-  if(section) {
-    console.log('removed');
+  if (section) {
+    console.log("removed");
     section.removeChild(document.querySelector("footer"));
   }
-  
+
   const footer = createFooter();
 
-  UI.render(footer,  document.querySelector("div.section"))
-}, 1000)
+  UI.render(footer, document.querySelector("div.section"));
+}, 1000);
 
 createHomeLayout();
