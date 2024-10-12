@@ -1,11 +1,6 @@
-const createContainer = () => {
+function createLoginLayout() {
   const container = document.createElement("div");
   container.setAttribute("class", "container-root");
-  return container;
-};
-
-function createLoginLayout() {
-  const container = createContainer();
 
   const header = document.createElement("header");
   header.setAttribute("class", "header");
@@ -14,7 +9,7 @@ function createLoginLayout() {
   link.setAttribute("href", "home.html");
   link.innerText = "Home";
 
-  const formWrapper = document.createElement("div");
+  const formWrapper = document.createElement("form");
   formWrapper.setAttribute("class", "form-wrapper");
 
   const loginContainer = document.createElement("div");
@@ -27,16 +22,16 @@ function createLoginLayout() {
   inputUsername.setAttribute("placeholder", "Username");
 
   const inputPassword = document.createElement("input");
-  inputPassword.setAttribute("type", "password");
-  inputPassword.setAttribute("placeholder", "Password");
+  inputPassword.setAttribute('type', 'password');
+  inputPassword.setAttribute('placeholder', 'Password');
 
   const buttonLogin = document.createElement("button");
-  buttonLogin.setAttribute("type", "submit");
+  buttonLogin.setAttribute("type", "submit" );
   buttonLogin.innerText = "Login";
 
   header.appendChild(link);
 
-  // Form
+  // Append elements to the DOM
   form.appendChild(inputUsername);
   form.appendChild(inputPassword);
   form.appendChild(buttonLogin);

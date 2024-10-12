@@ -2,11 +2,13 @@ function createHomeLayout() {
   const container = UI.createElement("div", { class: "container-root" }, [
     UI.createElement(
       "header",
-      { class: "header" },
-      UI.createElement("a", { href: "./index.html" }, "Log In")
+      {
+        class: "header",
+      },
+      UI.createElement("a", { href: "index.html" }, "Log In")
     ),
     UI.createElement("main", { class: "main-section" }, [
-      UI.createElement("nav", { class: "sidebar" }, "sidebar"),
+      UI.createElement("sidebar", { class: "sidebar" }, "nav"),
       UI.createElement("div", { class: "section" }, [
         UI.createElement("section", { class: "box" }, "section"),
         UI.createElement("section", { class: "box" }, "section"),
@@ -15,28 +17,20 @@ function createHomeLayout() {
     ]),
   ]);
 
-  UI.render(container, document.body);
+  UI.render(container, document.querySelector("body"));
 }
 
 function createFooter() {
-  return UI.createElement(
-    "footer",
-    { class: "footer", id: "time-footer" },
-    Date().toString()
-  );
+  return UI.createElement("section", { class: "footer" }, Date().toString());
 }
 
 setInterval(() => {
-  const section = document.querySelector("div.section");
-
-  if (section) {
-    console.log("removed");
-    section.removeChild(document.querySelector("footer"));
+  if (document.querySelector("div.section")) {
+    document
+      .querySelector("div.section")
+      .removeChild(document.querySelector("section.footer"));
   }
-
-  const footer = createFooter();
-
-  UI.render(footer, document.querySelector("div.section"));
+  UI.render(createFooter(), document.querySelector("div.section"));
 }, 1000);
 
 createHomeLayout();
