@@ -5,7 +5,10 @@ function createHomeLayout() {
       {
         class: "header",
       },
-      UI.createElement("a", { href: "index.html" }, "Log In")
+      [
+        UI.createElement("a", { href: "index.html" }, "Log In"),
+        UI.createElement("a", { href: "registration.html" }, "Sign Up"),
+      ]
     ),
     UI.createElement("main", { class: "main-section" }, [
       UI.createElement("sidebar", { class: "sidebar" }, "nav"),

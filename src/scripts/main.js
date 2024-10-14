@@ -13,7 +13,7 @@ function createLoginLayout() {
   formWrapper.setAttribute("class", "form-wrapper");
 
   const loginContainer = document.createElement("div");
-  loginContainer.setAttribute("class", "login-container");
+  loginContainer.setAttribute("class", "form-container");
 
   const form = document.createElement("form");
 
